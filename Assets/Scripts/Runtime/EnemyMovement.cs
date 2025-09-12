@@ -26,9 +26,12 @@ public class EnemyMovement : MonoBehaviour
         offset = Quaternion.AngleAxis(enemySpeed * Time.deltaTime, Vector3.forward) * offset;
         transform.position = Vector3.zero + offset;
 
-       
+        //Looking at Player
+        Vector2 direction = player.transform.position - transform.position;
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.Euler(0, 0, angle);
 
-        
+
     }
 
     
